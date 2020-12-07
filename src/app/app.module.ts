@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -20,6 +20,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipe } from './pipe/filter.pipe';
 import { CommonModule } from '@angular/common';
 import { AuthenticateService } from './authenticate.service';
+import { HttpIntercepterService } from './http/http-intercepter.service';
 
 
 
@@ -47,7 +48,9 @@ import { AuthenticateService } from './authenticate.service';
     ReactiveFormsModule,
     CommonModule
   ],
-  providers: [AuthenticateService],
+  providers: [AuthenticateService,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true}
+  ],
   exports: [FilterPipe],
   bootstrap: [AppComponent]
 })

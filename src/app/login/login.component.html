@@ -14,14 +14,17 @@
 				<h3>Sign In</h3>
 			</div>
 			<div class="card-body">
-				<form (ngSubmit) = "!loginForm.invalid && handleLogin()" #loginForm="ngForm">
+				<form (ngSubmit) = "handleJWTAuthLogin(user)" #loginForm="ngForm">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
 						<input type="email" [(ngModel)]="user.email" #email="ngModel" class="form-control" 
 						placeholder="username (email)" name="email" required minlength="5">
+						<!-- <h1>{{user.email}}</h1> -->
 					</div>
+					
+					<!-- {{user.email}} -->
 					<div class="alert alert-warning" *ngIf="loginForm.dirty && email.invalid">Enter valid username</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">

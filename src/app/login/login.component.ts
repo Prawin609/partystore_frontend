@@ -1,6 +1,6 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthenticateService } from '../authenticate.service';
 import { User } from '../model/user';
@@ -14,17 +14,34 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit {
 
+
   public ismyTextFieldType: boolean;
   public eye: string;
   invalidLogin: boolean;
   user: User;
   public users: User[];
+  email: string;
  
-  constructor(private authenticateService: AuthenticateService, private route: Router) { }
+  constructor(private userService: UserService, private authenticateService: AuthenticateService, private route: Router,
+    private routerAct: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.user = new User();
     this.eye = 'fas fa-eye-slash';
+
+    // this.user.email = "Prawinnnnnnnn";
+    // console.log(this.user.email);
+  }
+
+  loginUser(user){
+
+
+    console.log(user)
+    this.authenticateService.attemptLogin(user.email, user.password)
+    .subscribe( res => {
+      console.log(res)
+    },
+    err => console.log(err))
   }
 
   eyeOpen() {
@@ -35,6 +52,14 @@ export class LoginComponent implements OnInit {
   eyeClose() {
     this.ismyTextFieldType= false;
     this.eye= 'fas fa-eye-slash';
+  }
+
+  getUserinEmail(email: string){
+    this.userService.getUserbasedOnEmail(email)
+      .subscribe(res => {
+        this.user = res;
+      },
+      err => console.log(err));
   }
 
   handleLogin(){
@@ -48,21 +73,20 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // handleJWTAuthLogin(){
-  //   this.basicAuthenticationService.executeJWTAuthenticationService(this.username, this.password)
-  //         .subscribe(
-  //           data => {
-  //             console.log(data);
-  //             this.router.navigate(["welcome", this.username]);
-  //             this.invalidLogin = false;
-  //           },
-  //           error => {
-  //             console.log(error);
-  //             this.invalidLogin = true;
-  //           }
-            
-  //         )
-  // }
-  
-
+  handleJWTAuthLogin(user: User){
+    console.log(user.email);
+    console.log(user.password);
+    this.authenticateService.executeJWTAuthenticationService(user.email, user.password)
+          .subscribe(
+            data => {
+              console.log(data);
+              this.route.navigate(["inventory"]);
+              this.invalidLogin = false;
+            },
+            error => {
+              console.log(error);
+              this.invalidLogin = true;
+            }
+          )
+  }
 }
