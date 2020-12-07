@@ -1,0 +1,6 @@
+{
+    "/api": {
+        "target": "https://peaceful-mountain-14416.herokuapp.com/api/",
+        "secure": false
+    }
+}
