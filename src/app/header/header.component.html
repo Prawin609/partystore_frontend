@@ -11,10 +11,11 @@
         <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="inventory">Explore</a>
       </li>
     </ul>
-    
+
     <ul class=" navbar-nav navbar-collapse justify-content-end">
       <li class="nav-item dropdown dropleft">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -22,11 +23,11 @@
           <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="logout">logout</a>
           <div class="dropdown-divider"></div>
           <a *ngIf="!authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="signup">Sign-up</a>
-          <li class="nav-item">
-            <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="manageuser">Manage User</a>
-          </li>  
-        </div>
+      <li class="nav-item">
+        <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="manageuser">Manage User</a>
       </li>
-    </ul>
+  </div>
+  </li>
+  </ul>
   </div>
 </nav>

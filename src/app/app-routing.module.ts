@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { ErrorComponent } from './error/error.component'
-import { InventoryComponent } from './inventory/inventory.component'
 import { LoginComponent } from './login/login.component'
 import { LogoutComponent } from './logout/logout.component'
 import { ManageUserComponent } from './manage-user/manage-user.component'
@@ -10,6 +9,7 @@ import { SignUpComponent } from './sign-up/sign-up.component'
 import { UpdateUserComponent } from './update-user/update-user.component'
 import { InventoryListComponent } from './inventory-list/inventory-list.component'
 import { ItemDetailsComponent } from './item-details/item-details.component'
+import { UserdetailComponent } from './userdetail/userdetail.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -42,6 +42,7 @@ const routes: Routes = [
     canActivate: [RouteGuardService],
   },
   { path: '**', component: ErrorComponent },
+  {path: "userdetails", component: UserdetailComponent, canActivate: [RouteGuardService]},
 ]
 
 @NgModule({

@@ -26,16 +26,27 @@ export class SignUpComponent implements OnInit {
   }
 
   createNewUser(user : User){
+    user.role = "User";
     this.userService.createNewUser(user)
       .subscribe(
         res => {
           console.log(res);
           this.showSuccessMessage = true;
-          setTimeout(() => this.showSuccessMessage=false, 1000);
+          this.newUser.firstName="",
+          this.newUser.lastName="",
+          this.newUser.email="",
+          this.newUser.role="",
+          this.newUser.password=""
+          setTimeout(() => this.showSuccessMessage=false, 1500);
         },
         err => {
           console.log("Error Response : ", err)
             this.showErrorMessage = true;
+            this.newUser.firstName="",
+            this.newUser.lastName="",
+            this.newUser.email="",
+            this.newUser.role="",
+            this.newUser.password=""
             this.serverErrorMessages = 'Something went wrong, Please contact admin';
             setTimeout(()=>this.showErrorMessage=false, 3000);
             

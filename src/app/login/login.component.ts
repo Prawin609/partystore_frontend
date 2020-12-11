@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   user: User;
   public users: User[];
   email: string;
+  message: string;
  
   constructor(private userService: UserService, private authenticateService: AuthenticateService, private route: Router,
     private routerAct: ActivatedRoute) { }
@@ -62,17 +63,6 @@ export class LoginComponent implements OnInit {
       err => console.log(err));
   }
 
-  handleLogin(){
-    if(this.authenticateService.authenticate(this.user.email, this.user.password)){
-      console.log("login verifieddd");
-      this.route.navigate(["inventory"]);
-      this.invalidLogin = false;
-    }else{
-      console.log("login not verified");
-      this.invalidLogin = true;
-    }
-  }
-
   handleJWTAuthLogin(user: User){
     console.log(user.email);
     console.log(user.password);
@@ -85,6 +75,7 @@ export class LoginComponent implements OnInit {
             },
             error => {
               console.log(error);
+              this.message="Please try again"
               this.invalidLogin = true;
             }
           )

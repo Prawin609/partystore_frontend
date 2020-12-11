@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-
+import { UserdetailComponent } from './userdetail/userdetail.component'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component'
@@ -19,9 +19,9 @@ import { FilterPipe } from './pipe/filter.pipe'
 import { CommonModule } from '@angular/common'
 import { AuthenticateService } from './authenticate.service'
 import { HttpIntercepterService } from './http/http-intercepter.service'
-import { InventoryListComponent } from './inventory-list/inventory-list.component';
-import { ItemDetailsComponent } from './item-details/item-details.component';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { InventoryListComponent } from './inventory-list/inventory-list.component'
+import { ItemDetailsComponent } from './item-details/item-details.component'
+import { CheckoutComponent } from './checkout/checkout.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
@@ -39,7 +39,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     FilterPipe,
     InventoryListComponent,
     ItemDetailsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    UserdetailComponent,
   ],
   imports: [
     BrowserModule,

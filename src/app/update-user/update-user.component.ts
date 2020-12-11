@@ -26,28 +26,31 @@ export class UpdateUserComponent implements OnInit {
   ngOnInit(): void {
     this.newUser = new User();
     this.id = this.route.snapshot.params["id"];
+    console.log(this.id);
 
-    this.userService.getSingleUser(this.id)
+    // this.userService.getSingleUser(this.id)
+    //   .subscribe(res => this.newUser = res,
+    //     err => console.log(err))
+
+    this.userService.getUserbasedOnEmail(this.id)
       .subscribe(res => this.newUser = res,
         err => console.log(err))
 
     }
 
     updateUser(user: User){
-      this.userService.updateUser(this.id, user)
+      user.role = "User"
+      //console.log("User id from the update compo :  ",user._id);
+      this.userService.updateUser(user._id, user)
       .subscribe(res => {
         console.log(res);
         this.authUser.getAllusers();
         setTimeout(() => {
-          this.router.navigate(["manageuser"]);
+          this.router.navigate(["userdetails"]);
         }, 500)
         
       },
       err => console.log(err))
-    
-
-
-
   }
 
 }
