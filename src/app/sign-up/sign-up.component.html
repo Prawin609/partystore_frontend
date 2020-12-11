@@ -25,14 +25,14 @@
                 </div>
             </fieldset>
 
-            <fieldset class="form-group">
+            <!-- <fieldset class="form-group">
                 <label>Enter your role:</label>
-                <input type="text" id="role" #role="ngModel" name="role" [(ngModel)]="newUser.role" class="form-control" required minlength="4"
+                <input type="text" id="role" #role="ngModel" name="role" [(ngModel)]="newUser.role" class="form-control" disabled required minlength="4"
                 placeholder="Enter your role" [ngClass]="{'invalid-textbox' :userForm.submitted && !role.valid}">
                 <div *ngIf="userForm.submitted && !role.valid">
                     <label class="validation-message">This field is required</label>
                 </div>
-            </fieldset>
+            </fieldset> -->
 
             <fieldset class="form-group">
                 <label>Enter your email:</label>
@@ -52,11 +52,11 @@
                 </div>
             </fieldset>
 
-            <fieldset class="form-group">
+            <!-- <fieldset class="form-group">
                 <label>Enter your Password again:</label>
                 <input type="password" class="form-control" required minlength="5"
                 placeholder="confirm your password">
-            </fieldset>
+            </fieldset> -->
 
             <div>
                 <button class="btn btn-primary">Sign-Up</button>
@@ -65,7 +65,8 @@
         <br>
         <!-- Success Message -->
         <div class="success" *ngIf="showSuccessMessage">
-            Saved Successfully
+            Data Saved Successfully<br>
+            Please Sign up for the new user
         </div>
 
         <!-- Error Message -->

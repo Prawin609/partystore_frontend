@@ -16,7 +16,7 @@ import { UserService } from '../user.service';
 export class ManageUserComponent implements OnInit {
 
   p: number = 1;
-  // user: User;
+  user: User;
   users: User[];
   counter: number;
 
@@ -25,14 +25,7 @@ export class ManageUserComponent implements OnInit {
   // formGroup: FormGroup;
 
   constructor(private userService: UserService, private router: Router) {
-    // this.formGroup = formBuilder.group({filter: ['']});
-    // this.filteredData$ = this.formGroup.get('filter').valueChanges.pipe(
-    //   startWith(""),
-    //   withLatestFrom(this.users),
-    //   map(([val, userss]) => 
-    //     !val ? userss : userss.filter((x) => x.firstName.toLowerCase().includes(val))
-    //     )
-    // );
+    
    }
 
   ngOnInit(): void {

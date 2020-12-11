@@ -13,9 +13,6 @@
               <a class="nav-link" routerLink="signup">Sign-up</a>
             </li>
             <li class="nav-item">
-              <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="manageuser">Manage User</a>
-            </li>
-            <li class="nav-item">
                 <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="inventory">Explore</a>
             </li>
           </ul>
@@ -26,6 +23,9 @@
 
 
           <ul class=" navbar-nav navbar-collapse justify-content-end">
+            <li class="nav-item">
+              <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="userdetails">Edit User</a>
+            </li>
             <li class="nav-item active"><a *ngIf="!authenticatedService.isUserLoggedIn()" routerLink="login" class="nav-link">login</a></li>
             <li><a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="logout">logout</a></li>
           </ul>

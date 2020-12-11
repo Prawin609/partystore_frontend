@@ -21,6 +21,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { CommonModule } from '@angular/common';
 import { AuthenticateService } from './authenticate.service';
 import { HttpIntercepterService } from './http/http-intercepter.service';
+import { UserdetailComponent } from './userdetail/userdetail.component';
 
 
 
@@ -37,7 +38,8 @@ import { HttpIntercepterService } from './http/http-intercepter.service';
     ManageUserComponent,
     ErrorComponent,
     LogoutComponent,
-    FilterPipe
+    FilterPipe,
+    UserdetailComponent
     ],
   imports: [
     BrowserModule,
