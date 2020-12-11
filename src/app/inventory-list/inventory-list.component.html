@@ -1,0 +1,27 @@
+<div class="container">
+  <br>
+
+  <span>
+    <button (click)="updateInvetoryList('all')" class="btn btn-danger btn-xs">All Categories</button>
+    <button *ngFor="let category of categories;" type="button" (click)="updateInvetoryList(category)" class="btn btn-info btn-xs">{{category}}</button>
+  </span>
+
+  <br>
+  <br>
+  <div class="row">
+    <div style="margin-bottom: 10px;" *ngFor="let inventory of updatedInventories;let i = index;" class="col-md-3 card-deck">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" width="250px" height="200px"
+          src="https://storage.googleapis.com/party_store/ballons1.jpg"
+          alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{inventory.name}}</h5>
+          <h6 class="card-title">Categoty: {{updatedInventories[i].category}}</h6>
+          <p class="card-text"></p>
+          <a routerLink="/item-details/{{updatedInventories[i]._id}}" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>

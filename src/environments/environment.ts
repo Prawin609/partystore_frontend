@@ -3,8 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  devAPIUrl: 'https://cors-anywhere.herokuapp.com/party-store-api.herokuapp.com/api/',
+  //devAPIUrl: 'https://party-store-api.herokuapp.com/api/',
+  devInventoryRoute: 'inventories/',
+  devReviewRoute: 'review/',
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
