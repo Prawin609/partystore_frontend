@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../model/user';
 import { UserService } from '../user.service';
 
@@ -18,7 +19,8 @@ export class SignUpComponent implements OnInit {
 
   newUser: User;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
+
 
   ngOnInit(): void {
 
@@ -38,6 +40,8 @@ export class SignUpComponent implements OnInit {
           this.newUser.role="",
           this.newUser.password=""
           setTimeout(() => this.showSuccessMessage=false, 1500);
+
+          this.router.navigate(['login'])
         },
         err => {
           console.log("Error Response : ", err)
@@ -49,6 +53,8 @@ export class SignUpComponent implements OnInit {
             this.newUser.password=""
             this.serverErrorMessages = 'Something went wrong, Please contact admin';
             setTimeout(()=>this.showErrorMessage=false, 3000);
+
+
             
         }
       );

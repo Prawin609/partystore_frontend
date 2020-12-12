@@ -10,7 +10,7 @@ import { Inventory } from '../model/inventory'
   styleUrls: ['./item-details.component.css'],
 })
 export class ItemDetailsComponent implements OnInit {
-  qtn = 0
+  qtn = 1
   invntoryId
   inventory: Inventory
   reviews = []
@@ -27,11 +27,12 @@ export class ItemDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.invntoryId = this.activeRoutes.snapshot.params['inventoryId']
     this.getInvetoryById()
+    this.inventory = new Inventory()
   }
 
   updateQtn(operation) {
     if (operation == 'i') this.qtn++
-    else if (operation == 'd') this.qtn--
+    else if (operation == 'd' && this.qtn > 0) this.qtn--
   }
 
   checkUserId(id) {
@@ -47,6 +48,22 @@ export class ItemDetailsComponent implements OnInit {
       },
       (error) => console.log(error),
     )
+  }
+
+ 
+  deleteReview(inventoryId, reviewId){
+    
+    if(!confirm("Do you want to delete?")) return;
+
+    this.inventoryService.deleteReview(inventoryId, reviewId).subscribe( res => {
+
+      console.log(res)
+      window.location.reload()
+    },error => {
+
+      console.log(error);
+      
+    })
   }
 
   onaddReview(description) {

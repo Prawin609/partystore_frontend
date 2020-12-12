@@ -9,11 +9,12 @@ import { SignUpComponent } from './sign-up/sign-up.component'
 import { UpdateUserComponent } from './update-user/update-user.component'
 import { InventoryListComponent } from './inventory-list/inventory-list.component'
 import { ItemDetailsComponent } from './item-details/item-details.component'
-import { UserdetailComponent } from './userdetail/userdetail.component';
+import { UserdetailComponent } from './userdetail/userdetail.component'
+import { CheckoutComponent } from './checkout/checkout.component'
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
- // { path: '', component: ItemDetailsComponent },
+  // { path: '', component: ItemDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
   {
@@ -41,8 +42,17 @@ const routes: Routes = [
     component: LogoutComponent,
     canActivate: [RouteGuardService],
   },
+  {
+    path: 'userdetails',
+    component: UserdetailComponent,
+    canActivate: [RouteGuardService],
+  },
+  {
+    path: 'checkout/:invetoryId/:qtn',
+    component: CheckoutComponent,
+    canActivate: [RouteGuardService],
+  },
   { path: '**', component: ErrorComponent },
-  {path: "userdetails", component: UserdetailComponent, canActivate: [RouteGuardService]},
 ]
 
 @NgModule({

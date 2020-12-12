@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Party Store</a>
+  <span class="navbar-brand">Party Store</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,15 +19,16 @@
           User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a *ngIf="!authenticatedService.isUserLoggedIn()" routerLink="login" class="nav-link">login</a>
-          <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="logout">logout</a>
-          <div class="dropdown-divider"></div>
-          <a *ngIf="!authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="signup">Sign-up</a>
-      <li class="nav-item">
-        <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="manageuser">Manage User</a>
+          <a *ngIf="!authenticatedService.isUserLoggedIn()" routerLink="login" class="nav-link">Login</a>
+
+          <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="userdetails">Edit User</a>
+
+          <a *ngIf="authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="logout">Logout</a>
+          <!-- <div class="dropdown-divider"></div> -->
+          <a *ngIf="!authenticatedService.isUserLoggedIn()" class="nav-link" routerLink="signup">Signup</a>
+
+        </div>
       </li>
-  </div>
-  </li>
-  </ul>
+    </ul>
   </div>
 </nav>
